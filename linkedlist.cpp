@@ -97,14 +97,14 @@ void LinkedList<T>::removeElement(int position) {
         delete temp; 
         return;
     }
-    Node<T>* prev = head;
+    Node<T>* prev;
     for (int i = 1; i < position-1; i++) {
         prev = head;
         prev = prev->next; 
     }
-    Node<T>* c = prev->next;
-    prev->next = c->next;
-    delete c;
+    Node<T>* after = prev->next;
+    prev->next = after->next;
+    delete after;
     length--;
     return;
 }
