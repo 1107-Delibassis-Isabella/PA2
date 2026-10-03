@@ -97,7 +97,7 @@ void LinkedList<T>::removeElement(int position) {
         return;
     }
     Node<T>* prev;
-    for (int i = 1; i < position-1; i++) {
+    for (int i = 0; i < (position-1); i++) {
         prev = head;
         prev = prev->next; 
     }
