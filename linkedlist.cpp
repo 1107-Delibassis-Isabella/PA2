@@ -23,7 +23,7 @@ LinkedList<T>::LinkedList(const LinkedList& other) {
         }
     }
     length = other.length;
-    head = other.head;
+    
 }
 
 template <typename T>
@@ -44,7 +44,6 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList& other) {
         }
     }
     length = other.length;
-    head = other.head;
     return *this;
  }
 
