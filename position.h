@@ -15,10 +15,9 @@ struct Position {
     //SnakeGame* snake = new SnakeGame[];
 
 
-    bool operator=(const Position& other) const {
+    bool operator==(const Position& other) const {
         return row == other.row && column == other.column;
     }
-
     
 }; 
 #endif

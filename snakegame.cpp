@@ -35,8 +35,8 @@ void SnakeGame::displayGame() {
 }
 
 void SnakeGame::directionToMove(char input) {
-    Position current{snakeSegment[0]};
-    Position n = current;
+    Position* current{snakeSegment[0]};
+    Position* n = current;
     
     if (input == 'w' || input == 'W') {
         n.row--;
@@ -70,6 +70,7 @@ void SnakeGame::directionToMove(char input) {
 
     if (n == food) {
         currentLength++;
+        snakeSegment.addElement(n, 0);
         appearFood();
     }
 }

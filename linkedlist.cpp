@@ -61,62 +61,72 @@ LinkedList<T>::~LinkedList() {
 
 //
 template <typename T>
-void LinkedList<T>::addElement(Node<T>* n) {
-    Node* newNode = new Node(length);
-    if (head == nullptr) {
-        head = newNode;
-        return newNode;
-    } else {
-        
-    }
-    
-    newNode->head = n;
-    return newNode;
-}
-template <typename T>
-void LinkedList<T>::insertPosition(Node<T>* added, int position, int val) {
-    if (position < 1) {
+void LinkedList<T>::addElement(Node<T>* added, int position) {
+    if (position < 0) {
         //out of bounds
         cout << "Out of bounds" << endl;
         return;
-        //return added;
     }
     
-    if (position == 1) {
-        Node<T>* newNode = new Node<T>(val);
+    if (position == 0) {
+        head = new Node<T>(added, head);
+        length++;
+        return;
+    }
+        Node<T>* newNode = new Node<T>(added);
         newNode->head = added;
         return;
-    }
+    
 
-    Node<T>* curr = added;
-    for (int i = 1; i < (position - 1) && curr != nullptr; i++) {
-        curr = curr->head;
+    Node<T>* curr = head;
+    for (int i = 0; i < (position - 1); i++) {
+        curr = curr->next;
     }
-    if (curr == nullptr) {
-        return;
-    }
-    Node<T>* newNode = new Node<T>(val);
-    newNode->head = curr->head;
-    curr->head = newNode;
+    
+    curr->next = new Node<T>(added, curr->next);
+    length++;
     return;
 }
 
 template <typename T>
-void LinkedList<T>::removePosition(int position) {
-    Node<T>* temp = removed;
-    if (position == 1) {
-        removed = temp->next;
+void LinkedList<T>::removeElement(int position) {
+    if (position < 0) {
+        cout << "Out of bounds for removing an element" << endl;
+    }
+    if (position == 0) {
+        Node<T>* temp = head;
+        head = head->next;
+        length--;
         delete temp; 
         return;
     }
-    Node *prev = nullptr;
-    for (int i = 1; i < position; i++) {
-        prev = temp;
-        temp = temp->next; 
+    Node<T>* prev = head;
+    for (int i = 1; i < position-1; i++) {
+        prev = head;
+        prev = prev->next; 
     }
-
-    prev->next = temp->next;
-    delete temp;
+    Node<T>* c = prev->next;
+    prev->next = c->next;
+    delete c;
+    length--;
     return;
 }
 
+template <typename T>
+void LinkedList<T>::setLength(int l) {
+    length = l;
+}
+
+template <typename T>
+bool LinkedList<T>::accessIndex(int i) {
+    if (i < length) {
+        return true;
+    } else if (i >= length) {
+        return false;
+    }
+}
+
+template<typename T>
+void LinkedList<T>::clear() {
+    length = 0;
+}

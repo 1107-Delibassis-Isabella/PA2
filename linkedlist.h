@@ -23,8 +23,11 @@ class LinkedList {
         ~LinkedList();
 
         //
-        void addElement(Node<T>*);
-        void insertPosition(Node<T>*, int, int); 
-        void removePosition(int);
+        void addElement(Node<T>*, int);
+        void removeElement(int);
+        void setLength(int);
+        bool accessIndex(int);
+        void clear();
+        
 }; 
 #endif

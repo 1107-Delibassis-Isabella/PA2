@@ -4,10 +4,10 @@ Project2: arraylist.o linkedlist.o snakegame.o tests.o main.o
 main.o: main.cpp snakegame.h
 	g++ -c main.cpp
 
-arraylist.o: arraylist.h arraylist.cpp
+arraylist.o: arraylist.h arraylist.cpp tests.cpp
 	g++ -c arraylist.cpp
 
-linkedlist.o: Node.h linkedlist.h linkedlist.cpp
+linkedlist.o: Node.h linkedlist.h linkedlist.cpp tests.cpp
 	g++ -c linkedlist.cpp
 
 snakegame.o: position.h snakegame.h snakegame.cpp

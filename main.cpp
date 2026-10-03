@@ -8,9 +8,9 @@ int main() {
     char choice = 'y';
 
     while (choice == 'y' || choice == 'Y') {
-        game.reset();
+        game = new SnakeGame();
 
-        while (game.getGameOver == false) {
+        while (game.getGameOver() == false) {
             char movement;
             game.displayGame();
             cout << "To move the snake, press: " << endl;

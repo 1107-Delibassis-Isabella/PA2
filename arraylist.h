@@ -24,10 +24,12 @@ class ArrayList {
         ~ArrayList();
 
         //Required List operations
+        void setLength(int);
         int getCapacity();
         int getLength();
         void addElement(T*, int);
         void removeElement(int);
-
+        bool accessIndex(int);
+        void clear();
 };
 #endif

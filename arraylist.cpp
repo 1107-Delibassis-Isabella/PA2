@@ -57,6 +57,7 @@ template <typename T>
 void ArrayList<T>::addElement(T* element, int position) {
     if (position < 0 || position > length) {
         cout << "Out of bounds" << endl;
+        return;
     } else {
         if (length == capacity) {
         resize(2*capacity);
@@ -115,3 +116,21 @@ void ArrayList<T>::resize(int newCapacity) {
     capacity = newCapacity;
 }
 
+template<typename T>
+void ArrayList<T>::setLength(int l) {
+    length = l;
+}
+
+template <typename T>
+bool ArrayList<T>::accessIndex(int i) {
+    if (i < length) {
+        return true;
+    } else if (i >= length) {
+        return false;
+    }
+}
+
+template<typename T>
+void ArrayList<T>::clear() {
+    length = 0;
+}
