@@ -73,9 +73,6 @@ void LinkedList<T>::addElement(Node<T>* added, int position) {
         length++;
         return;
     }
-        Node<T>* newNode = new Node<T>(added);
-        newNode->head = added;
-        return;
     
 
     Node<T>* curr = head;
